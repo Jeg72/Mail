@@ -37,13 +37,13 @@ $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true; 
  
 // Usuario del correo desde el cual queremos enviar, para Gmail recordar usar el usuario completo (usuario@gmail.com) 
-$mail->Username = "falconjosegarces@gmail.com"; 
+$mail->Username = "tucorreo@gmail.com"; 
  
 // Contraseña 
-$mail->Password = "195428jgng1972"; 
+$mail->Password = "tupassword"; 
  
 // Conectamos a la base de datos 
-$db = new mysqli('localhost', 'root', '181014', 'mailer'); 
+$db = new mysqli('localhost', 'root', '', ''); 
  
 if ($db->connect_errno > 0) { 
     die('Imposible conectar [' . $db->connect_error . ']'); 
@@ -58,11 +58,11 @@ while($row = $result->fetch_assoc()) {
     //Añadimos la direccion de quien envia el corre, en este caso Codejobs, primero el correo, luego el nombre de quien lo envia. 
  
  
-    $mail->setFrom('falconjosegarces@gmail.com', 'JEG!'); 
+    $mail->setFrom('@gmail.com', ''); 
     $mail->addAddress($row['PersonasEmail'], $row['PersonasNombre']); 
  
     //La linea de asunto 
-    $mail->Subject = 'Bienvenido a JEG!'; 
+    $mail->Subject = 'Bienvenido a Portal Web'; 
  
     // La mejor forma de enviar un correo, es creando un HTML e insertandolo de la siguiente forma, PHPMailer permite insertar, imagenes, css, etc. (No se recomienda el uso de Javascript) 
  
